@@ -1,0 +1,17 @@
+# Values can be mentioned in this file
+
+#            or
+
+
+# Values can be passed at the application level, I am passing at application because data changes based on MS
+
+appName: clothing-stg
+depName: clothing-stg-dep
+svcName: clothing-stg-svc
+nameSpace: stg-aadil-ns
+replicas: 
+  default: 1
+image:
+  name: aadil08/clothing
+  tag: random
+targetPort: 3000

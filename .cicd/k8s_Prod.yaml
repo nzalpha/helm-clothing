@@ -1,0 +1,33 @@
+# Manifest file for clothing Deployment
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clothing-prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: clothing-prod
+  template:
+    metadata:
+      labels:
+        app: clothing-prod
+    spec:
+      containers:
+      - name: clothing-prod
+        image: DIT
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clothing-prod-svc
+spec:
+  selector:
+    app: clothing-prod
+  type: NodePort
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3000
